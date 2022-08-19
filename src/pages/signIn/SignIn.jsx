@@ -72,7 +72,7 @@ const SignIn = () => {
           />
           <label>Šifra</label>
           <input 
-          type="text"
+          type="password"
           className="signIn-input"
           value={password}
           id='password'
