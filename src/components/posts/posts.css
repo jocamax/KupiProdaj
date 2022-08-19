@@ -1,0 +1,19 @@
+.posts-grid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loadMoreBtn{
+    background-color: rgb(13, 144, 252);
+    color: white;
+    text-align: center;
+    width: 170px;
+    font-size: 18px;
+    padding: 5px;
+    border-radius:14px ;
+    margin: 0 auto;
+    cursor: pointer;
+}
+

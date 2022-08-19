@@ -1,0 +1,78 @@
+.containerProfile{
+    margin-top: 100px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profileContainer{
+ align-self: center;
+
+}
+
+.profileHeader{
+    font-size: 48px;
+    margin-bottom: 30px;
+
+}
+
+.profileDetailsHeader{
+    font-size: 24px;
+}
+
+.saveBtn{
+    display: inline-block;
+    margin: 15px 5px;
+}
+
+.profileInput{
+    padding: 5px 40px;
+    border-radius: 5px;
+    background-color: white;
+    border: 3px solid rgb(255, 123, 0);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.profileEmail{
+    font-size: 18px;
+    margin: 10px 5px;
+}
+
+.profileButtons{
+    display: flex;
+    gap: 35px;
+}
+
+.profileImage{
+    height: 110px;
+}
+
+.profileImg{
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border: 2px solid gray;
+    border-radius: 50%;
+}
+
+.profileDetailsImage{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-top: 4rem;
+}
+
+.changeImageForm{
+    text-align: right;
+    align-self: flex-end;
+    margin-right: 5%;
+}
+
+.blueLine{
+    border-bottom: 4px solid rgb(0, 153, 255);
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 5px;
+}

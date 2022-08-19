@@ -1,0 +1,13 @@
+.commentsFlex{
+    color: white;
+    background-color: red;
+}
+
+.loadMoreComments{
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 165px;
+    padding: 2px 5px;
+    border-radius: 10px;
+    background-color: aqua;
+}

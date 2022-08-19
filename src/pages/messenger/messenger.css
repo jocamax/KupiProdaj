@@ -1,0 +1,135 @@
+.messengerContainer{
+    display: flex;
+    margin:0 auto;
+    height: calc(100vh - 81px);
+    font-size: 16px;
+    max-width: 1024px;
+    background-color: aliceblue;
+}
+
+.usersContainer{
+    width: 230px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.21);
+    border-radius: 10px 0 0 0;
+}
+
+.userDetails{
+    padding: 12px 3px;
+    border-bottom: 1px solid rgb(207, 207, 207);    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.userDetails img{
+    height: 50px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    object-fit: cover;
+    width:50px;
+    z-index: 5;
+}
+
+.messageContainer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.21);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.21);
+    border-radius: 0px 10px 0px 0;
+}
+
+.messangingSection{
+ width: 95%;
+overflow-y: scroll;
+
+}
+
+.chatUsername{
+    justify-self:center;
+}
+
+.singleMessageContainer{
+    padding: 10px;
+    background-color: rgb(35, 152, 255);
+    margin-bottom: 10px;
+    border-radius: 15px 15px 15px 0px;
+    color: rgb(235, 235, 235);
+    max-width: 240px;
+}
+
+.messages{
+    display: flex;
+    flex-direction: column;
+}
+
+.my{
+    text-align: right;
+    align-self: flex-end;
+    background-color: rgb(78, 104, 255);
+    border-radius: 15px 15px 0px 15px;
+
+}
+
+.messangingForm{
+    margin-top: 1rem;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+.messageForm{
+    padding: 7px 15px;
+    font-size: 16px;
+    border: 1px solid gray;
+    border-radius: 7px 0 0 7px;
+    width: 275px;
+}
+
+.messageBtn{
+    padding: 7px 15px;
+    font-size: 16px;
+    border: 1px solid gray;
+    border-radius: 0 7px 7px 0;
+    background-color: rgb(57, 57, 255);
+    color: white;
+}
+
+.blue{
+    color: rgb(0, 68, 170);
+}
+
+@media screen and (max-width: 682px){
+    .usersContainer{
+        width: 80px;
+        border: 1px solid black;
+    }
+
+    .singleMessageContainer{
+        padding: 8px;
+        max-width: 200px;
+        font-size: 15px;
+    }
+
+    .messageForm{
+        padding: 7px 5px;
+        font-size: 14px;
+        width: 145px;
+    }
+
+    .messageBtn{
+        padding: 7px 10px;
+        font-size: 14px;
+    }
+    
+    
+
+}
