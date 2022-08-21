@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 1.3rem;
 }
 
 .loadMoreBtn{
@@ -17,3 +18,8 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 400px){
+    .posts-grid{
+        margin-top: 0;
+    }
+}

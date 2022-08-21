@@ -1,0 +1,19 @@
+.btnLoading{
+    background-color: lightgray;
+}
+
+.oglasImgLoading{
+    background-color: lightgray;
+}
+
+.oglasImgContainer{
+    background-color: lightgray;
+}
+
+.loadingText{
+    color: lightgray;
+    background-color: lightgray;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+}

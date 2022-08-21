@@ -69,7 +69,8 @@ const Profile = () => {
         style={{display: 'none'}}
         id= 'photo'
         onChange={(e)=> setImg(e.target.files[0])}
-        />       </div>
+        />
+      </div>
      
       
     

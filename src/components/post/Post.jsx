@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 const Post = ({post, id, setChat}) => {
   const [active, setActive] = useState('active')
   return (
-    <li className='ogl'>
     <div className='oglasContainerLi'>
       
         <div className='oglasContainer'>
@@ -46,7 +45,6 @@ const Post = ({post, id, setChat}) => {
     
       </div>
       
-  </li>
   )
 }
 

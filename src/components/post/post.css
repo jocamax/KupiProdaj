@@ -1,5 +1,5 @@
 .oglasContainerLi{
-    margin: 20px;
+    margin: 5px 10px;
     width: 700px;
     display: flex;
     flex-direction: column;
@@ -16,6 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .active{
@@ -127,7 +129,8 @@
 
 @media screen and (max-width: 624px){
     .oglasContainerLi{
-        width: 100%;
+        width: 99%;
+        margin: 0px;
     }
     .oglasContainer{
         flex-direction: column;
