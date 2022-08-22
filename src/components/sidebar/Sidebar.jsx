@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {FaWindowClose} from 'react-icons/fa'
 import './sidebar.css'
 const Sidebar = ({setCategoryName}) => {
     const [sidebarActive, setSidebarActive] = useState('')
@@ -6,6 +7,7 @@ const Sidebar = ({setCategoryName}) => {
     <>
     <p className='sidebarShow' onClick={()=> sidebarActive ? setSidebarActive(''): setSidebarActive('sidebarActive')}>Sortiraj</p>
     <div className={`sidebar ${sidebarActive}`}>
+    <p className='sidebarShowIcon' onClick={()=> sidebarActive ? setSidebarActive(''): setSidebarActive('sidebarActive')}><FaWindowClose/></p>
         <div className='pretraga'>
             <h3>Pretrazi postove</h3>
             <input type="text" placeholder='Pretraga' className='sidebar-input'/>
