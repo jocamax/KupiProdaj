@@ -25,15 +25,12 @@ function App() {
       <Route path='/create-post' element={<ProtectedRoute/>}>
       <Route path='/create-post' element={<CreatePost/>}></Route>
       </Route>
-
       <Route path='/' element={<ProtectedRoute/>}>
       <Route path='/' element={<Home/>}></Route>
       </Route>
-
       <Route path='/messenger' element={<ProtectedRoute/>}>
       <Route path='/messenger' element={<Messenger/>}></Route>
       </Route>
-
       <Route path='/sign-up' element={<SignUp/>}></Route>
     </Routes>
   </BrowserRouter>

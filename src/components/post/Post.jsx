@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import './post.css'
-import {FaMapMarkerAlt} from 'react-icons/fa'
+import {FaMapMarkerAlt, FaTrashAlt} from 'react-icons/fa'
 import CommentForm from '../CommentForm/CommentForm'
 import Comments from '../Comments/Comments'
 import { Link } from 'react-router-dom'
 
-const Post = ({post, id, setChat}) => {
+const Post = ({post, id, setChat, onDelete}) => {
   const [active, setActive] = useState('active')
   return (
     <div className='oglasContainerLi'>
@@ -28,9 +28,16 @@ const Post = ({post, id, setChat}) => {
               <p>{post.text}</p>
               <p></p>
             </div>
-            <div>
+            <div className='oglasiBtn'>
               <Link to='/messenger' className='btn btn-link'>Posalji poruku</Link>
               <button className='btn' onClick={(e)=> active === '' ? setActive('active') : setActive('')}>Komentari </button>
+              {onDelete && (
+                <FaTrashAlt
+                className='deletePost'
+                fill='red'
+                cursor='pointer'
+                onClick={() => onDelete(post.id, post.name)}
+              />)} 
             </div>
          </div>
         </div>
@@ -42,8 +49,9 @@ const Post = ({post, id, setChat}) => {
     </div>
 
         </div>
-    
-      </div>
+
+      
+  </div>
       
   )
 }

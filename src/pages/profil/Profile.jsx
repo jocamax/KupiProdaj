@@ -1,4 +1,5 @@
 import React from 'react'
+import Post from '../../components/post/Post'
 import { getAuth } from 'firebase/auth'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
@@ -7,10 +8,12 @@ import Img from '../../components/img/profile-placeholder.png'
 import { useEffect } from 'react'
 import {storage, db} from '../../firebase.config'
 import {ref, getDownloadURL, uploadBytes} from 'firebase/storage'
-import { getDoc, doc, updateDoc } from 'firebase/firestore'
+import { getDoc, doc, updateDoc, collection, query, where, orderBy, getDocs, deleteDoc } from 'firebase/firestore'
+
 
 const Profile = () => {
   const auth = getAuth()
+  const [posts, setPosts] = useState(null)
   const navigate = useNavigate('')
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
@@ -48,11 +51,46 @@ const Profile = () => {
     }
   }, [img])
 
+  useEffect(()=>{
+    const fetchPosts = async() =>{
+      const postsRef = collection(db, 'posts')
+      const q = query(
+        postsRef, 
+        where('userRef', '==', auth.currentUser.uid), 
+        orderBy('timestamp', 'desc'))
+      
+        const querySnap = await getDocs(q)
+  
+        let posts = []
+  
+        querySnap.forEach((doc)=>{
+          return posts.push({
+            id: doc.id,
+            data: doc.data()
+          })
+        })
+        setPosts(posts)
+    }
+    fetchPosts()
+  }, [auth.currentUser.uid])
+  
+  const onDelete= async (postId) =>{
+    if(window.confirm('Da li sigurno zelis da obrises ovaj post?')) {
+      await deleteDoc(doc(db, 'posts', postId))
+    }
+    else{
+      return
+    }
+    const updatePost = posts.filter((post)=>post.id !== postId)
+    setPosts(updatePost)
+    alert('Posts je uspesno obrisan')
+  
+  }
+
   const onLogout = ()=>{
     auth.signOut()
     navigate('/')
   }
-  
 
   return (
     <div className="">
@@ -94,6 +132,20 @@ const Profile = () => {
     </div>
     </div>
     </div>
+    <div className='mojiPostovi'>
+    <h2>Moji postovi:</h2>
+    <div className='posts-grid'>
+    {posts?.map((post)=>{
+      return <Post
+      post={post.data} 
+      id={post.id} 
+      key={post.id}
+      onDelete={()=>onDelete(post.id)}
+      />
+})}
+</div>
+    </div>
+    
   </div>
   )
 }

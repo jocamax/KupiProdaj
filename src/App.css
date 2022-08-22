@@ -39,3 +39,9 @@ body{
 
 
 }
+
+h2{
+  text-align: center;
+  color: rgb(8, 107, 139);
+  margin-top: 1rem;
+}

@@ -40,7 +40,6 @@
     background-color: white;
     margin-top: 20px;
     border-radius: 10px;
-    padding-bottom: 10px;
 }
 
 .oglasContainer:hover{
@@ -92,6 +91,12 @@
     border-radius: 3px;
 }
 
+.oglasiBtn{
+    display: flex;
+    align-items: center;
+    padding-bottom: .5rem;
+}
+
 .brTelefona{
     margin-right: 16px;
 }
@@ -111,6 +116,11 @@
     width: 100%;
 }
 
+.deletePost{
+    font-size: 22px;
+    margin-left: 10px;    
+}
+
 @media screen and (max-width: 752px){
     .oglasContainerLi{
         font-size: 16px;
@@ -125,6 +135,7 @@
     .mainContentFlex2 p{
         font-size: 16px;
     }
+
 }
 
 @media screen and (max-width: 624px){
@@ -152,6 +163,7 @@
         display:block;
         object-fit:cover;
     }
+
 }
 
 @media screen and (max-width: 402px){
