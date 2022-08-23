@@ -148,7 +148,9 @@ const CreatePost = () => {
  }
 
   return (
-    <motion.div initial='hidden' animate='visible'
+
+    <div className='createPost-container'>
+          <motion.div initial='hidden' animate='visible'
     variants={{
       hidden: {
         scale: .95,
@@ -163,7 +165,6 @@ const CreatePost = () => {
       }
     }}
     > 
-    <div className='createPost-container'>
        <form onSubmit={onSubmit}>
           <label className='label'>Kreirajte oglas</label>
           <label htmlFor="">Grad</label>
@@ -211,8 +212,9 @@ const CreatePost = () => {
           />
           <button className='create-btn' type='submit'>Postavi post</button>
         </form>
+        </motion.div>
     </div>
-    </motion.div>
+
   )
 }
 

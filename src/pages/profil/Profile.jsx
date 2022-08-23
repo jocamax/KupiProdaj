@@ -109,10 +109,8 @@ const Profile = () => {
         onChange={(e)=> setImg(e.target.files[0])}
         />
       </div>
-     
-      
-    
     </div>
+
     <div className='blueLine'/>
     <div className='containerProfile'>
     <div>
@@ -133,6 +131,7 @@ const Profile = () => {
     </div>
     </div>
     <div className='mojiPostovi'>
+
     <h2>Moji postovi:</h2>
     <div className='posts-grid'>
     {posts?.map((post)=>{
@@ -143,9 +142,8 @@ const Profile = () => {
       onDelete={()=>onDelete(post.id)}
       />
 })}
-</div>
-    </div>
-    
+      </div>
+   </div>  
   </div>
   )
 }
