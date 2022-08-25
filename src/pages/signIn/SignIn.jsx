@@ -69,6 +69,7 @@ const SignIn = () => {
           id="email"
           value={email}
           onChange={onChange}
+          required
           />
           <label>Šifra</label>
           <input 
@@ -77,6 +78,8 @@ const SignIn = () => {
           value={password}
           id='password'
           onChange={onChange}
+          minLength='5'
+          required
           />
           <button type='submit'>Ulogujte Se</button>
         </form>
