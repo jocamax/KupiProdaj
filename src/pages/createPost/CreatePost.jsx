@@ -164,7 +164,7 @@ const CreatePost = () => {
         }
       }
     }}
-    > 
+    > <div className='createPostWrapper'>
        <form onSubmit={onSubmit}>
           <label className='label'>Kreirajte oglas</label>
           <label htmlFor="">Grad</label>
@@ -212,6 +212,7 @@ const CreatePost = () => {
           />
           <button className='create-btn' type='submit'>Postavi post</button>
         </form>
+        </div>
         </motion.div>
     </div>
 
