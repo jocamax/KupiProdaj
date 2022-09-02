@@ -18,12 +18,12 @@ const Sidebar = ({setCategoryName}) => {
             <p>Filter opcija</p>
             <p>Filter opcija</p>
         </div>
-        <button>Napravi post</button>
+        <button className='hoverOpacity'>Napravi post</button>
         <div className='kategorije'>
             <h3>Kategorije</h3>
-            <button onClick={()=> setCategoryName('')}>Sve objave</button>
-            <button onClick={()=> setCategoryName('Tehnika')}>Tehnika</button>
-            <button onClick={()=> setCategoryName('Ostalo')}>Ostalo</button>
+            <button className='hoverOpacity' onClick={()=> setCategoryName('')}>Sve objave</button>
+            <button className='hoverOpacity' onClick={()=> setCategoryName('Tehnika')}>Tehnika</button>
+            <button className='hoverOpacity' onClick={()=> setCategoryName('Ostalo')}>Ostalo</button>
         </div>
         <div className='odjavljivanje'>
             <button>Odjavi se</button>

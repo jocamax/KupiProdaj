@@ -78,7 +78,7 @@ const SignUp = () => {
       }}
       > 
       <div className="signInContainer">
-        <h2>Ulogujte Se</h2>
+        <h2>Napravite Nalog</h2>
         <div className='underline'></div>
         <form action="" onSubmit={onSubmit}>
           <label htmlFor="">Ime i prezime</label>

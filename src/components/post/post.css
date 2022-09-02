@@ -97,6 +97,11 @@
     padding-bottom: .5rem;
 }
 
+.oglasiBtn a{
+    padding: 7px 10px;
+
+}
+
 .brTelefona{
     margin-right: 16px;
 }

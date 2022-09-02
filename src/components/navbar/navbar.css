@@ -3,11 +3,23 @@
     border-bottom: 1px solid #e5e7eb;
 }
 
+.nav-item{
+  font-weight: bold;
+}
+
 
   @media (min-width: 768px) {
     .nav-primary {
       border-bottom: 1px solid #e5e7eb;
       position: static;
+    }
+    .nav-item {
+      font-size: 20px;
+      color: blue;
+    }
+
+    .nav-item a{
+      color: rgb(0, 68, 255);
     }
   }
   .nav-primary .nav-container {

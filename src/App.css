@@ -45,3 +45,23 @@ h2{
   color: rgb(8, 107, 139);
   margin-top: 1rem;
 }
+
+.hoverOpacity:hover{
+  opacity: 0.8;
+
+}
+
+.hoverPop{
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn{
+  padding: 7px 10px;
+  font-size: 15px;
+  border-radius: 8px;
+  background-color: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
