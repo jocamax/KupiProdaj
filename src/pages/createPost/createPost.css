@@ -5,15 +5,15 @@
     padding-top: 10vh;
     background: url(https://images.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg) no-repeat;
     background-size: cover;
-    height: 91vh;
+    height: 98vh;
 }
 
 
 .inputText{
     max-width: 600px;
     min-width: 600px;
-    min-height: 200px;
-    max-height: 200px;
+    min-height: 140px;
+    max-height: 140px;
     padding: 1rem;
     font-size: 18px;
 
@@ -23,10 +23,10 @@
 }
 
 .input{
-    padding: 1rem;
+    padding: 10px;
     border-radius: 10px;
     border: 1px solid rgb(171, 171, 171);
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .createPost-container form{

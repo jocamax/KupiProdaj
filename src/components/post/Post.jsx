@@ -32,12 +32,16 @@ const Post = ({post, id, setChat, onDelete}) => {
               <Link to='/messenger' className='btn btn-link'>Posalji poruku</Link>
               <button className='btn' onClick={(e)=> active === '' ? setActive('active') : setActive('')}>Komentari </button>
               {onDelete && (
+                <div className="deletePostBtn">
+                <p>Obrišite post: </p>
                 <FaTrashAlt
                 className='deletePost'
                 fill='red'
                 cursor='pointer'
                 onClick={() => onDelete(post.id, post.name)}
-              />)} 
+              />
+                </div>
+               )} 
             </div>
          </div>
         </div>

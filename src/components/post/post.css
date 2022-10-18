@@ -126,6 +126,20 @@
     margin-left: 10px;    
 }
 
+.deletePostBtn{
+    display: flex;
+    flex-direction:row;
+    border: 3px solid red;
+    background-color: rgb(255, 231, 231);
+    border-radius: 10px;
+    padding: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.deletePostBtn:hover{
+    background-color: rgb(251, 216, 216);
+}
 @media screen and (max-width: 752px){
     .oglasContainerLi{
         font-size: 16px;
@@ -139,6 +153,16 @@
 
     .mainContentFlex2 p{
         font-size: 16px;
+    }
+
+    .deletePostBtn p{
+        display: none;
+    }
+
+    .deletePost{
+        margin: 0;
+        padding: 0;
+
     }
 
 }
