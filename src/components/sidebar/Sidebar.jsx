@@ -1,8 +1,17 @@
 import React, { useState } from 'react'
 import {FaWindowClose} from 'react-icons/fa'
+import { Link, useNavigate } from 'react-router-dom'
+import { getAuth } from 'firebase/auth'
 import './sidebar.css'
 const Sidebar = ({setCategoryName}) => {
+    const auth = getAuth()
+    const navigate = useNavigate('')
     const [sidebarActive, setSidebarActive] = useState('')
+
+    const onLogout = ()=>{
+        auth.signOut()
+        navigate('/')
+      }
   return (
     <>
     <p className='sidebarShow' onClick={()=> sidebarActive ? setSidebarActive(''): setSidebarActive('sidebarActive')}>Sortiraj</p>
@@ -18,7 +27,7 @@ const Sidebar = ({setCategoryName}) => {
             <p>Filter opcija</p>
             <p>Filter opcija</p>
         </div>
-        <button className='hoverOpacity'>Napravi post</button>
+        <button><Link to='/create-post' className='hoverOpacity'>Napravi post</Link></button>
         <div className='kategorije'>
             <h3>Kategorije</h3>
             <button className='hoverOpacity' onClick={()=> setCategoryName('')}>Sve objave</button>
@@ -26,7 +35,7 @@ const Sidebar = ({setCategoryName}) => {
             <button className='hoverOpacity' onClick={()=> setCategoryName('Ostalo')}>Ostalo</button>
         </div>
         <div className='odjavljivanje'>
-            <button>Odjavi se</button>
+            <button onClick={onLogout}>Odjavi se</button>
         </div>
     </div>
     </>

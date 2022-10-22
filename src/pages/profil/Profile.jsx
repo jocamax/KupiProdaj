@@ -126,7 +126,7 @@ const Profile = () => {
       <Link to='/create-post'>
       <button className='btn'>Kreiraj post</button>
       </Link>
-      <button className='btn logout' type='button' onClick={onLogout}>Log Out</button>
+      <button className='btn logout' type='button' onClick={onLogout}>Odjavi se</button>
     </div>
     </div>
     </div>

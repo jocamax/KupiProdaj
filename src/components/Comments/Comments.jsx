@@ -14,7 +14,6 @@ import {
 
 
 const Comments = ({id, commentLength}) => {
-
   const [comments, setComments] = useState(null)
   const [loading, setLoading] = useState(true)
   const [lastFetchedComment, setLastFetchedComment] = useState(null) 

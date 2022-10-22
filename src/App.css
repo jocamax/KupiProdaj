@@ -1,11 +1,10 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
   list-style: none;
-
 }
 
 *,
@@ -23,7 +22,7 @@
 
 ::before,
 ::after {
-  --tw-content: '';
+  --tw-content: "";
 }
 
 hr {
@@ -33,35 +32,36 @@ hr {
   /* 3 */
 }
 
-
-body{
- font-family: sans-serif;
-
-
+body {
+  font-family: sans-serif;
 }
 
-h2{
+h2 {
   text-align: center;
   color: rgb(8, 107, 139);
   margin-top: 1rem;
 }
 
-.hoverOpacity:hover{
+.hoverOpacity:hover {
   opacity: 0.8;
-
 }
 
-.hoverPop{
+.hoverPop {
   transform: scale(1.05);
   transition: all 0.2s ease-in-out;
 }
 
-.btn{
+.btn {
   padding: 7px 10px;
   font-size: 15px;
   border-radius: 8px;
   background-color: blue;
   color: white;
   border: none;
+  cursor: pointer;
+}
+button > a {
+  color: white;
+  text-decoration: none;
   cursor: pointer;
 }

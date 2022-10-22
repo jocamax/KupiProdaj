@@ -1,7 +1,6 @@
 .home-container{
     /* background-color: rgb(211, 241, 250); */
     background-color: whitesmoke;
-
     display: flex;
     justify-content: center;
 }
