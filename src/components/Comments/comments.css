@@ -4,12 +4,7 @@
 }
 
 .loadMoreComments{
-    box-sizing: border-box;
     margin: 0 auto;
-    width: 165px;
     padding: 5px ;
-    border-radius: 10px;
-    background-color: #372edb;
-    color: white;
-    cursor: pointer;
+    display: flex;
 }

@@ -1,78 +1,106 @@
-.containerProfile{
-    margin-top: 10px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.containerProfile {
+  margin-top: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.profileContainer{
- align-self: center;
-
+.profileContainer {
+  align-self: center;
 }
 
-.profileHeader{
-    font-size: 48px;
-    margin-bottom: 30px;
-
+.profileHeader {
+  font-size: 48px;
+  margin-bottom: 30px;
 }
 
-.profileDetailsHeader{
-    font-size: 24px;
+.profileDetailsHeader {
+  font-size: 24px;
 }
 
-.saveBtn{
-    display: inline-block;
-    margin: 15px 5px;
+.saveBtn {
+  display: inline-block;
+  margin: 15px 5px;
 }
 
-.profileInput{
-    padding: 5px 40px;
-    border-radius: 5px;
-    background-color: white;
-    border: 3px solid rgb(255, 123, 0);
-    font-size: 18px;
-    margin-bottom: 10px;
+.mojiPostovi{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-.profileEmail{
-    font-size: 18px;
-    margin: 10px 5px;
+.profileInput {
+  padding: 5px 40px;
+  border-radius: 5px;
+  background-color: white;
+  border: 3px solid rgb(255, 123, 0);
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-.profileButtons{
-    display: flex;
-    gap: 35px;
+.profileEmail {
+  font-size: 18px;
+  margin: 10px 5px;
 }
 
-.profileImage{
-    height: 110px;
+.profileButtons {
+  display: flex;
+  gap: 35px;
 }
 
-.profileImg{
-    width: 110px;
-    height: 110px;
-    object-fit: cover;
-    border: 2px solid gray;
-    border-radius: 50%;
+.profileImage {
+  height: 110px;
 }
 
-.profileDetailsImage{
-    display: flex;
-    flex-direction: column;
-    align-items:center;
-    margin-top: 4rem;
+.profileImg {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border: 2px solid gray;
+  border-radius: 50%;
 }
 
-.changeImageForm{
-    text-align: right;
-    align-self: flex-end;
-    margin-right: 5%;
+.profileDetailsImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
 }
 
-.blueLine{
-    border-bottom: 4px solid rgb(0, 153, 255);
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 5px;
+.changeImageForm {
+  text-align: right;
+  align-self: flex-end;
+  margin-right: 5%;
+}
+
+.blueLine {
+  border-bottom: 4px solid rgb(0, 153, 255);
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.myPostsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  justify-items: center;
+  margin: 20px 0;
+}
+
+.labelDesign{
+  padding: 4px 7px;
+  border-radius: 5px;
+  border : 2px solid rgb(0, 153, 255);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .myPostsGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

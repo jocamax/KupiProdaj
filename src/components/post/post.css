@@ -1,4 +1,4 @@
-.oglasContainerLi{
+/* .oglasContainerLi{
     margin: 5px 10px;
     width: 700px;
     display: flex;
@@ -7,7 +7,6 @@
 }
 
 .btn-link{
-    font-size: 14px;
     margin-right: 1rem;
 }
 
@@ -208,4 +207,38 @@
     .oglasImg{
         height: 250px;
     }
+} */
+
+.card{
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+}
+
+.postButtons{
+    
+}
+
+.messageIcon{
+    cursor: pointer;
+    font-size: 24px;
+    color: rgb(36, 131, 255);
+}
+
+.messageIcon:first-child{
+    margin-bottom: 2px;
+}
+.postsContainer{
+    min-height: 91vh;
+}
+
+.deleteIcon{
+    font-size: 22px;
+    color: red;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.gray{
+    color: gray;
 }

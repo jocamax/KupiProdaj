@@ -113,7 +113,7 @@ const Posts = ({ categoryName, setSidebarActive }) => {
   }
 
   return (
-    <div>
+    <div className="postsContainer">
       {loading ? (
         <Loading />
       ) : posts && posts.length > 0 ? (

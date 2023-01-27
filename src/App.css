@@ -5,6 +5,7 @@
   text-decoration: none;
   scroll-behavior: smooth;
   list-style: none;
+  
 }
 
 *,
@@ -52,16 +53,24 @@ h2 {
 }
 
 .btn {
-  padding: 7px 10px;
+  padding: 10px 14px;
   font-size: 15px;
   border-radius: 8px;
-  background-color: blue;
+  background-color: rgb(42, 99, 255);
   color: white;
   border: none;
   cursor: pointer;
 }
-button > a {
+
+a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buttonText{
   color: white;
   text-decoration: none;
   cursor: pointer;
 }
+

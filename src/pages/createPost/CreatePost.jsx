@@ -1,17 +1,17 @@
-import {useState, useEffect, useRef} from 'react'
-import {getAuth, onAuthStateChanged} from 'firebase/auth'
-import {useNavigate} from 'react-router-dom'
-import {v4 as uuidv4} from 'uuid'
-import { 
-  getStorage, 
-  ref, 
-  uploadBytesResumable, 
-  getDownloadURL 
-} from "firebase/storage";
-import {db} from '../../firebase.config'
-import {addDoc, collection, serverTimestamp} from 'firebase/firestore'
-import './createPost.css'
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from "react"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
+import { useNavigate } from "react-router-dom"
+import { v4 as uuidv4 } from "uuid"
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage"
+import { db } from "../../firebase.config"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
+import "./createPost.css"
+import { motion } from "framer-motion"
 
 const CreatePost = () => {
   const auth = getAuth()
@@ -19,50 +19,51 @@ const CreatePost = () => {
   const isMounted = useRef(true)
 
   const [loading, setLoading] = useState(true)
-    const [formData, setFormData] = useState({
-        category: 'Ostalo',
-        text: '',
-        pending:'true',
-        ime: auth.currentUser.displayName,
-        images: {},
-        grad: ''
-    })
+  const [formData, setFormData] = useState({
+    category: "Ostalo",
+    text: "",
+    pending: "true",
+    ime: auth.currentUser.displayName,
+    images: {},
+    grad: "",
+    price: "",
+  })
 
-    const {
-      category,
-      text,
-      // pending,
-      // ime,
-      images,
-      grad,
-    } = formData
+  const {
+    category,
+    text,
+    // pending,
+    // ime,
+    images,
+    grad,
+    price,
+  } = formData
 
-    useEffect(()=>{
-      if(isMounted){
-          onAuthStateChanged(auth, (user) => {
-              if(user){
-                  setFormData({...formData, userRef: user.uid})
-              } else{
-                  navigate('/sign-in')
-              }
-          })
-      }
+  useEffect(() => {
+    if (isMounted) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setFormData({ ...formData, userRef: user.uid })
+        } else {
+          navigate("/sign-in")
+        }
+      })
+    }
 
+    setLoading(false)
 
-      setLoading(false)
-
-      return ()=>{
-          isMounted.current = false
-      }
-// eslint-disable-next-line react-hooks/exhaustive-deps
-  },[isMounted] )
+    return () => {
+      isMounted.current = false
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMounted])
 
   const onSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    if(images.length > 4){
+    if (images.length > 4) {
       setLoading(false)
-      alert('Postavili ste preko 4 slike, to nije dozvoljeno')
+      alert("Postavili ste preko 4 slike, to nije dozvoljeno")
       return
     }
 
@@ -71,22 +72,22 @@ const CreatePost = () => {
         const storage = getStorage()
         const fileName = `${auth.currentUser.uid}-${image.name}-${uuidv4()}`
 
-        const storageRef = ref(storage, 'images/' + fileName)
+        const storageRef = ref(storage, "images/" + fileName)
 
         const uploadTask = uploadBytesResumable(storageRef, image)
 
         uploadTask.on(
-          'state_changed',
+          "state_changed",
           (snapshot) => {
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            console.log('Upload is ' + progress + '% done')
+            console.log("Upload is " + progress + "% done")
             switch (snapshot.state) {
-              case 'paused':
-                console.log('Upload is paused')
+              case "paused":
+                console.log("Upload is paused")
                 break
-              case 'running':
-                console.log('Upload is running')
+              case "running":
+                console.log("Upload is running")
                 break
               default:
                 break
@@ -103,91 +104,90 @@ const CreatePost = () => {
         )
       })
     }
-     const imgUrls = await Promise.all(
+    const imgUrls = await Promise.all(
       [...images].map((image) => storeImage(image))
     ).catch(() => {
       setLoading(false)
-      alert('slike nisu postavljene')
+      alert("slike nisu postavljene")
       return
     })
-    
+
     const formDataCopy = {
       ...formData,
       imgUrls,
-      timestamp: serverTimestamp()
+      timestamp: serverTimestamp(),
     }
 
     delete formDataCopy.images
-    const docRef = await addDoc(collection(db, 'posts'),
-    formDataCopy)
+    const docRef = await addDoc(collection(db, "posts"), formDataCopy)
 
     setLoading(false)
-    console.log('Post je postavljen');
+    console.log("Post je postavljen")
     navigate(`/`)
-    
   }
 
   const onMutate = (e) => {
     let boolean = null
-    if(e.target.files){
-      setFormData((prevState)=>({
-          ...prevState,
-          images: e.target.files
-      }))
-  }
-
-  if(!e.target.files){
-    setFormData((prevState) => ({
+    if (e.target.files) {
+      setFormData((prevState) => ({
         ...prevState,
-        [e.target.id] : boolean ?? e.target.value
-    }))
-}
+        images: e.target.files,
+      }))
+    }
+
+    if (!e.target.files) {
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.id]: boolean ?? e.target.value,
+      }))
+    }
   }
-  if(loading){
+  if (loading) {
     return <h1>LOADING....</h1>
- }
+  }
 
   return (
-
     <div className='createPost-container'>
-          <motion.div initial='hidden' animate='visible'
-    variants={{
-      hidden: {
-        scale: .95,
-        opacity: 0
-      },
-      visible: {
-        scale:1,
-        opacity:1,
-        transition: {
-          delay: .1
-        }
-      }
-    }}
-    > 
-       <form onSubmit={onSubmit}>
+      <motion.div
+        initial='hidden'
+        animate='visible'
+        variants={{
+          hidden: {
+            scale: 0.95,
+            opacity: 0,
+          },
+          visible: {
+            scale: 1,
+            opacity: 1,
+            transition: {
+              delay: 0.1,
+            },
+          },
+        }}
+      >
+        <form onSubmit={onSubmit}>
           <label className='label'>Kreirajte oglas</label>
-          <label htmlFor="">Grad</label>
-          <input 
-          type="text"
-          placeholder='Grad'
-          className='input'
-          id='grad'
-          value={grad}
-          onChange={onMutate}
-          required
+          <label htmlFor=''>Grad</label>
+          <input
+            type='text'
+            placeholder='Grad'
+            className='input'
+            id='grad'
+            value={grad}
+            onChange={onMutate}
+            required
           />
-          <label htmlFor="">Kategorija</label>
-           <input 
-          type="text"
-          placeholder='Kategorija'
-          className='input'
-          id='category'
-          value={category}
-          onChange={onMutate}
-          required
+          <label htmlFor=''>Kategorija</label>
+          <input
+            type='text'
+            placeholder='Kategorija'
+            className='input'
+            id='category'
+            value={category}
+            onChange={onMutate}
+            required
           />
-          <label htmlFor="">Slike</label>
+          <label htmlFor=''>Slike</label>
           <input
             className='input'
             type='file'
@@ -199,22 +199,33 @@ const CreatePost = () => {
             multiple
             required
           />
-          <textarea 
-          className='inputText'
-          type='text'
-          placeholder='Ovde upisite svoj tekst'
-          id='text'
-          value={text}
-          onChange={onMutate}
-          min='5'
-          max='200'     
-          required
+          <label htmlFor=''>Cena</label>
+          <input
+            type='number'
+            placeholder='Cena'
+            className='input'
+            id='price'
+            value={price}
+            onChange={onMutate}
+            required
           />
-          <button className='create-btn' type='submit'>Postavi post</button>
+          <textarea
+            className='inputText'
+            type='text'
+            placeholder='Ovde upisite svoj tekst'
+            id='text'
+            value={text}
+            onChange={onMutate}
+            min='5'
+            max='200'
+            required
+          />
+          <button className='create-btn' type='submit'>
+            Postavi post
+          </button>
         </form>
-        </motion.div>
+      </motion.div>
     </div>
-
   )
 }
 

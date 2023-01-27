@@ -8,9 +8,13 @@ import {doc, setDoc, serverTimestamp} from 'firebase/firestore'
 import { motion } from 'framer-motion';
 
 import './signUp.css'
+import { Button, Paper, PasswordInput, Text, TextInput, Title } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 
 const SignUp = () => {
   const auth = getAuth()
+  const [visible, { toggle }] = useDisclosure(false)
+
 
   const [formData, setFormData] = useState({
     name: '',
@@ -59,8 +63,8 @@ const SignUp = () => {
 
 
   return (
-    <div className='bg'>
     <div className="container">
+      <Paper shadow='md' radius='lg' p='lg' w={500} m={10}>
      <div id="cloud-intro">
      <motion.div initial='hidden' animate='visible'
       variants={{
@@ -78,41 +82,54 @@ const SignUp = () => {
       }}
       > 
       <div className="signInContainer">
-        <h2>Napravite Nalog</h2>
+      <Title order={2} fw='bold' c='black' mb={24} mt='14' ta='center'>
+           Napravite nalog
+          </Title>
         <div className='underline'></div>
         <form action="" onSubmit={onSubmit}>
-          <label htmlFor="">Ime i prezime</label>
-          <input 
-          type="text" 
-          className='signIn-input'
-          value={name}
-          id='name'
-          onChange={onChange}
-          />
-          <label>Unesite Vaš Email</label>
-          <input className='signIn-input' 
-          type="text"
-          value={email}
-          id='email' 
-          onChange={onChange}
-          />
-          <label>Šifra</label>
-          <input 
-          type="password"
-          className='signIn-input'
-          value={password}
-          id='password'
-          onChange={onChange}
-          />
-          <button type='submit' >Ulogujte Se</button>
+        <TextInput
+                  placeholder='Your name'
+                  label='Ime i prezime'
+                  className='signIn-input'
+                  type='text'
+                  id='name'
+                  value={name}
+                  onChange={onChange}
+                  required
+                />
+          <TextInput
+                  placeholder='Your name'
+                  label='Unesite Vas Email'
+                  className='signIn-input'
+                  type='text'
+                  id='email'
+                  value={email}
+                  onChange={onChange}
+                  required
+                />
+          <PasswordInput
+                  label='Unesite Vasu Lozinku'
+                  className='signIn-input'
+                  value={password}
+                  id='password'
+                  onChange={onChange}
+                  minLength='5'
+                  onVisibilityChange={toggle}
+                  required
+                />
+                <Button type='submit'>Registrujte Se</Button>
         </form>
-        <p className="signIn-p">Ulogujte se uz pomoć Google naloga</p>
-        <button className='signIn-google'><FcGoogle size={26}/></button>
-        <Link className='linkk' to='/sign-in'>Ako već imate profil, <span>Ulogujte se</span> </Link>
+
+        <Link className='registerLink' to='/sign-in'>
+                Ako vec imate profil,{" "}
+                <Text td='underline' c='blue' mb={14}>
+                  Ulogujte se
+                </Text>{" "}
+              </Link>
       </div>
       </motion.div>
      </div>
-    </div>
+     </Paper>
     </div>
   )
 }

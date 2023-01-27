@@ -1,9 +1,9 @@
-.posts-grid{
+/* .posts-grid{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 1.3rem;
+    margin: 1rem 0;
 }
 
 .loadMoreBtn{
@@ -16,10 +16,33 @@
     border-radius:14px ;
     margin: 0 auto;
     cursor: pointer;
+    margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 400px){
     .posts-grid{
         margin-top: 0;
+    }
+} */
+
+.posts-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin: 3rem 0;
+
+}
+
+@media screen and (max-width: 1024px){
+    .posts-grid{
+       display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    }
+
+    .posts-grid div{
+    
     }
 }

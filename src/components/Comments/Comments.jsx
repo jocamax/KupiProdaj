@@ -11,13 +11,13 @@ import {
   }    from 'firebase/firestore'
   import {db} from '../../firebase.config'
   import './comments.css'
+import { Button } from '@mantine/core'
 
 
-const Comments = ({id, commentLength}) => {
+const Comments = ({id}) => {
   const [comments, setComments] = useState(null)
   const [loading, setLoading] = useState(true)
   const [lastFetchedComment, setLastFetchedComment] = useState(null) 
-
 
   useEffect(()=>{
     const fetchComments = async ()=>{
@@ -45,6 +45,7 @@ const Comments = ({id, commentLength}) => {
 
           setComments(comments)
           setLoading(false)
+          console.log("arr")
       } catch (error) {
         alert('ERRR')
       }
@@ -52,6 +53,7 @@ const Comments = ({id, commentLength}) => {
     }
     fetchComments()
   },[])
+
 
   const fetchMoreComments = async ()=>{
     try {
@@ -105,7 +107,7 @@ const Comments = ({id, commentLength}) => {
        
       </section>
       {lastFetchedComment && (
-          <p className="loadMoreComments" onClick={fetchMoreComments}>Učitaj Još Komentara</p>
+          <Button variant='outline' className='loadMoreComments' onClick={fetchMoreComments}>Učitaj Još Komentara</Button>
         )}
       </> 
        ):( <p>Nema komentara</p>
